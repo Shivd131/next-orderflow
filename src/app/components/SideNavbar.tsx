@@ -22,8 +22,7 @@ const menuItems = [
 ];
 
 const SideNavbar = () => {
-    // a state to figure out the screen width for conditional rendering
-    const [isScreenWide, setIsScreenWide] = useState(window.innerWidth > 768);
+    const [isScreenWide, setIsScreenWide] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
@@ -32,21 +31,20 @@ const SideNavbar = () => {
         };
 
         window.addEventListener('resize', handleResize);
-        handleResize();//ffor each resize event, this will be called and will be constantly checked regularly
+        handleResize();
 
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
     return (
-        <div>
+        <div className={`md:w-60 ${isScreenWide ? 'fixed top-0 left-0 h-full' : ''}`}>
             {!isScreenWide ? (
-                <Disclosure as="nav" className="md:flex md:flex-col md:w-60 md:fixed md:top-0 md:left-0">
-                    {/* A disclosure button for tab view and below */}
+                <Disclosure as="nav">
                     <DisclosureButton className="absolute md:hidden top-4 right-4 rounded-md p-2 focus:ring-white shadow-2xl border border-gray-300 bg-white hover:scale-105 transition-all">
                         <GiHamburgerMenu className='block h-6 w-6 fill-gray-500' aria-hidden="true" />
                     </DisclosureButton>
-                    {/* panel for sidebar */}
                     <DisclosurePanel className='md:flex md:flex-col md:h-screen p-6 sm:w-1/3 h-screen bg-white z-20 fixed top-0 lg:w-60 lg:left-0 ease-in-out delay-100 duration-300 transition-all'>
                         <div className='flex flex-col justify-start items-center'>
                             <Image className="text-base text-center cursor-pointer font-bold border-b border-gray-100 pb-4 w-full" src={orderflow} alt={'orderflow'} />
@@ -64,7 +62,7 @@ const SideNavbar = () => {
                     </DisclosurePanel>
                 </Disclosure>
             ) : (
-                <div className='md:flex md:flex-col md:h-screen p-6 sm:w-1/3 h-screen bg-white z-20 fixed top-0 lg:w-60 lg:left-0 ease-in-out delay-100 duration-300 transition-all'>
+                <div className='md:flex md:flex-col md:h-full p-6 bg-white z-20'>
                     <div className='flex flex-col justify-start items-center'>
                         <Image className="text-base text-center cursor-pointer font-bold border-b border-gray-100 pb-4 w-full" src={orderflow} alt={'orderflow'} />
                         <div className="my-4 border-b border-gray-100 pb-4">
