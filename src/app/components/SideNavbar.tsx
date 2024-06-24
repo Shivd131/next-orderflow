@@ -62,7 +62,7 @@ const SideNavbar = () => {
                     </DisclosurePanel>
                 </Disclosure>
             ) : (
-                <div className='md:flex md:flex-col md:h-full p-6 bg-white z-20'>
+                <div className='md:flex md:flex-col md:h-full p-6 bg-white z-20  border-r border-slate-300 '>
                     <div className='flex flex-col justify-start items-center'>
                         <Image className="text-base text-center cursor-pointer font-bold border-b border-gray-100 pb-4 w-full" src={orderflow} alt={'orderflow'} />
                         <div className="my-4 border-b border-gray-100 pb-4">
