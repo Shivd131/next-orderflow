@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SideNavbar from "./components/SideNavbar";
+import StoreProvider from "./StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex gap">
-          <SideNavbar />
-          <main className="flex-grow md:ml-60 p-2">{children}</main>
-        </div>
+        <StoreProvider>
+          <div className="flex">
+            <SideNavbar />
+            <main className="flex-grow md:ml-60 p-2">{children}</main>
+          </div>
+        </StoreProvider>
       </body>
     </html>
   );
