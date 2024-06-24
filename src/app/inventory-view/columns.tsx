@@ -54,6 +54,7 @@ export const columns: ColumnDef<Product>[] = [
             return (
                 <Button
                     variant="ghost"
+                    className="relative -left-4"
                     onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
                 >
                     Name
@@ -68,6 +69,7 @@ export const columns: ColumnDef<Product>[] = [
             return (
                 <Button
                     variant="ghost"
+                    className="relative -left-6"
                     onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
                 >
                     Stock

@@ -41,7 +41,7 @@ const InventoryView = () => {
       </div>
       <div className='p-3 '>
         <h2 className='font-semibold'>Product List</h2>
-        <DataTable columns={columns} data={items} />
+        <DataTable  columns={columns} data={items} />
       </div>
     </div>
   );
