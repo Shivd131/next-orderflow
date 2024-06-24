@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+//initial state of inventory
 interface Item {
     id: number;
     name: string;
@@ -22,6 +23,7 @@ const inventorySlice = createSlice({
     name: 'inventory',
     initialState,
     reducers: {
+        //reducers are nothing but functions that handle how state will be update. 
         addItem: (state, action: PayloadAction<Item>) => {
             state.items.push(action.payload);
         },

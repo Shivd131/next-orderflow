@@ -9,10 +9,13 @@ const persistConfig = {
     version: 1
 }
 
+//method used to combine multiple reducers
 const rootReducer = combineReducers({ inventory: inventoryReducer })
 
+//wrapping persistance with the config written above
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
+//this creates the redux store
 const store = configureStore({
 
     reducer: persistedReducer,
