@@ -16,6 +16,8 @@ const initialState: InventoryState = {
         { id: 1, name: "Item 1", stock: 20 },
         { id: 2, name: "Item 2", stock: 15 },
         { id: 3, name: "Item 3", stock: 10 },
+        { id: 4, name: "Item 4", stock: 10 },
+
     ],
 };
 

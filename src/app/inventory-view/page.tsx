@@ -1,10 +1,13 @@
-'use client'
+'use client';
+
 import { addItem, editItem, deleteItem } from '@/lib/features/inventory/inventorySlice';
 import { RootState } from '../../lib/store';
-import React from 'react'
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { columns } from "./columns";
+import { DataTable } from '@/components/ui/data-table';
 
 const InventoryView = () => {
   const items = useSelector((state: RootState) => state.inventory.items);
@@ -24,21 +27,6 @@ const InventoryView = () => {
     dispatch(deleteItem(id));
   };
 
-  // return (
-  //   <div>
-  //     <h1>Inventory</h1>
-  //     <ul>
-  //       {items.map(item => (
-  //         <li key={item.id}>
-  //           {item.name} - Stock: {item.stock}
-  //           <button onClick={() => handleEditItem(item.id)}>Edit</button>
-  //           <button onClick={() => handleDeleteItem(item.id)}>Delete</button>
-  //         </li>
-  //       ))}
-  //     </ul>
-  //     <button onClick={handleAddItem}>Add Item</button>
-  //   </div>
-  // )
   return (
     <div>
       <div className='flex justify-between items-center bg-white  px-3 py-4 border-b border-slate-300'>
@@ -47,13 +35,16 @@ const InventoryView = () => {
           <div>Search Bar</div>
         </div>
 
-        <Button className='bg-[#04B4FC] text-white hover:bg-slate-100 hover:shadow-sm hover:border ' variant="outline"><IoIosAddCircleOutline className='fill size-5' /> Add new Product</Button>
+        <Button onClick={handleAddItem} className='bg-[#04B4FC] text-white hover:bg-slate-100 hover:shadow-sm hover:border' variant="outline">
+          <IoIosAddCircleOutline className='fill size-5' /> Add new Product
+        </Button>
       </div>
       <div className='p-3 '>
         <h2 className='font-semibold'>Product List</h2>
+        <DataTable columns={columns} data={items} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default InventoryView
+export default InventoryView;
