@@ -4,6 +4,7 @@ import "./globals.css";
 import SideNavbar from "./components/SideNavbar";
 import StoreProvider from "./StoreProvider";
 import { cn } from "@/lib/utils"
+import { Toaster } from "@/components/ui/sonner";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
           <div className="flex">
             <SideNavbar />
             <main className="flex-grow md:ml-60">{children}</main>
+            <Toaster />
           </div>
         </StoreProvider>
       </body>
