@@ -6,9 +6,15 @@ import orderflow from "../../../public/assets/orderflow.svg";
 import Image from 'next/image';
 import { CiBoxList } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
+import { RxDashboard } from "react-icons/rx";
 import Link from 'next/link';
 
 const menuItems = [
+    {
+        icon: RxDashboard,
+        href: '/',
+        name: 'Dashboard',
+    },
     {
         icon: CiBoxList,
         href: '/inventory-view',
@@ -18,7 +24,8 @@ const menuItems = [
         icon: CiShoppingCart,
         href: '/orders-view',
         name: 'Orders'
-    }
+    },
+
 ];
 
 const SideNavbar = () => {
