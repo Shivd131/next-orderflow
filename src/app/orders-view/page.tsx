@@ -28,8 +28,8 @@ const OrdersView = () => {
 
     return (
         <div>
-            <div className='flex justify-between items-center bg-white px-3 py-4 border-b border-slate-300'>
-                <div className='flex items-center gap-10 '>
+            <div className='flex justify-between items-center bg-white px-3 py-5 border-b border-slate-300'>
+                <div className='flex items-center '>
                     <h2 className='text-xl font-semibold'>Orders</h2>
                 </div>
             </div>
