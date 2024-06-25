@@ -28,7 +28,7 @@ export default function Home() {
         <h2 className='font-semibold'>Summary</h2>
         <div className="grid grid-cols-2 gap-8 pt-10">
           {summaryData.map((item, index) => (
-            <div key={index} className="flex justify-between py-6 rounded-md bg-white p-2 shadow-md hover:shadow-xl transition ease-in delay-50 duration-200 border border-slate-200">
+            <div key={index} className="flex justify-between py-6 rounded-lg font-semibold bg-white p-2 shadow-md hover:shadow-xl transition ease-in delay-50 duration-200 border border-slate-200 hover:bg-[#04B4FC] hover:text-white">
               <p>{item.label}</p>
               <p>{item.value}</p>
             </div>

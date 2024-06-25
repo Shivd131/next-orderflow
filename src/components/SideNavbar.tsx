@@ -2,7 +2,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { GiHamburgerMenu } from "react-icons/gi";
 import React, { useEffect, useState } from 'react';
-import orderflow from "../../../public/assets/orderflow.svg";
+import orderflow from "../../public/assets/orderflow.svg";
 import Image from 'next/image';
 import { CiBoxList } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
