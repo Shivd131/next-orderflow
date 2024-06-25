@@ -33,6 +33,7 @@ import {
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
+    parameter: string
 }
 
 import { Button } from "@/components/ui/button"
@@ -41,6 +42,7 @@ import { Input } from "@/components/ui/input"
 export function DataTable<TData, TValue>({
     columns,
     data,
+    parameter
 }: DataTableProps<TData, TValue>) {
 
     //states
@@ -83,9 +85,9 @@ export function DataTable<TData, TValue>({
             <div className="flex items-center py-4">
                 <Input
                     placeholder="Search Order Names..."
-                    value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
+                    value={(table.getColumn(parameter)?.getFilterValue() as string) ?? ""}
                     onChange={(event) =>
-                        table.getColumn("name")?.setFilterValue(event.target.value)
+                        table.getColumn(parameter)?.setFilterValue(event.target.value)
                     }
                     className="max-w-sm"
                 />

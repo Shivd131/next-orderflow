@@ -2,6 +2,7 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import inventoryReducer from './features/inventory/inventorySlice';
 import { persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import ordersSlice from './features/orders/ordersSlice';
 
 const persistConfig = {
     key: 'root',
@@ -10,7 +11,7 @@ const persistConfig = {
 }
 
 //method used to combine multiple reducers
-const rootReducer = combineReducers({ inventory: inventoryReducer })
+const rootReducer = combineReducers({ inventory: inventoryReducer, orders: ordersSlice })
 
 //wrapping persistance with the config written above
 const persistedReducer = persistReducer(persistConfig, rootReducer)
