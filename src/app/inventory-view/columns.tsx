@@ -87,7 +87,6 @@ export const columns: ColumnDef<Product>[] = [
                 dispatch(deleteItem(id))
                 toast("Item deleted successfully")
             }
-
             const handleEditDialogClose = () => {
                 setEditItemId(null)
             }

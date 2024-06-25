@@ -1,18 +1,15 @@
 'use client';
 
-import { editItem, deleteItem } from '@/lib/features/inventory/inventorySlice';
 import { RootState } from '../../lib/store';
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { Button } from "@/components/ui/button";
-
 import { columns } from "./columns";
 import { DataTable } from '@/components/ui/data-table';
 import { AddItemDialog } from './AddItemDialog';
 
 const InventoryView = () => {
   const items = useSelector((state: RootState) => state.inventory.items);
-  const dispatch = useDispatch();
   const [filter, setFilter] = useState<'all' | 'inStock' | 'outOfStock'>('all');
 
   const handleFilterChange = (newFilter: 'all' | 'inStock' | 'outOfStock') => {
