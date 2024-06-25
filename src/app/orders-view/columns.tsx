@@ -73,11 +73,17 @@ export const columns: ColumnDef<Order>[] = [
             </Button>
         ),
         cell: ({ row }) => row.original.items.length,
-
     },
     {
         accessorKey: "status",
-        header: "Status"
+        header: "Status",
+        cell: ({ row }) => {
+            const status = row.original.status;
+            const statusStyle = status === 'Pending' ? 'text-red-400' : (status === 'Completed' ? 'text-green-400' : '');
+            return (
+                <span className={statusStyle}>{status}</span>
+            );
+        }
     },
     {
         id: "actions",
@@ -104,7 +110,7 @@ export const columns: ColumnDef<Order>[] = [
                             Copy Order ID
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        {/* <DropdownMenuItem>Edit Order</DropdownMenuItem> */}
+                        <DropdownMenuItem>View Order</DropdownMenuItem>
                         {/* <DropdownMenuItem
                             className="text-red-500"
                             onClick={() => {

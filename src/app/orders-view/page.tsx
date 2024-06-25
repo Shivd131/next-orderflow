@@ -4,7 +4,7 @@
 
 import { RootState } from '../../lib/store';
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Button } from "@/components/ui/button";
 import { columns } from "./columns";
 import { DataTable } from '@/components/ui/data-table';
