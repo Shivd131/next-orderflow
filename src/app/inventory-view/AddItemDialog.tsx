@@ -23,7 +23,7 @@ export function AddItemDialog() {
     const [open, setOpen] = useState(false)
 
     const handleAddItem = () => {
-        const newItem = { id: Math.random(), name, stock }
+        const newItem = { id: parseInt((Math.random() * 100000).toString()), name, stock }
         dispatch(addItem(newItem))
         setName("")
         setStock(0)
