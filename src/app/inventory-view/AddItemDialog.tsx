@@ -42,7 +42,7 @@ export function AddItemDialog() {
                 <DialogHeader>
                     <DialogTitle>Add New Product</DialogTitle>
                     <DialogDescription>
-                        Enter the details for the new product. Click save when you're done.
+                        Enter the details for the new product. Click save when you are done.
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">

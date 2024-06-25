@@ -51,7 +51,7 @@ export function EditItemDialog({ itemId, onClose }: EditItemDialogProps) {
                 <DialogHeader>
                     <DialogTitle>Edit Product</DialogTitle>
                     <DialogDescription>
-                        Edit the details for the product. Click save when you're done.
+                        Edit the details for the product. Click save when you are done.
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
