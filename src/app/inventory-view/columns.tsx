@@ -4,6 +4,8 @@ import { ColumnDef } from "@tanstack/react-table"
 import { MoreHorizontal, ArrowUpDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
+import { useDispatch } from 'react-redux';
+import { editItem, deleteItem } from '@/lib/features/inventory/inventorySlice';
 
 
 import {
@@ -14,6 +16,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { toast } from "sonner"
 
 export type Product = {
     id: number
@@ -22,6 +25,7 @@ export type Product = {
 }
 
 export const columns: ColumnDef<Product>[] = [
+
     {
         id: "select",
         header: ({ table }) => (
@@ -83,6 +87,11 @@ export const columns: ColumnDef<Product>[] = [
         header: "Actions",
         cell: ({ row }) => {
             const order = row.original
+            const dispatch = useDispatch();
+
+            const handleDeleteItem = (id: number) => {
+                dispatch(deleteItem(id));
+            };
 
             return (
                 <DropdownMenu>
@@ -95,13 +104,28 @@ export const columns: ColumnDef<Product>[] = [
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
                         <DropdownMenuItem
-                            onClick={() => navigator.clipboard.writeText(order.id.toString())}
+                            onClick={() => {
+                                navigator.clipboard.writeText(order.id.toString())
+                                toast("ID copied successfully!")
+
+                            }
+
+
+                            }
                         >
                             Copy Product ID
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>View Item</DropdownMenuItem>
-                        {/* <DropdownMenuItem>View payment details</DropdownMenuItem> */}
+                        <DropdownMenuItem>Edit Item</DropdownMenuItem>
+                        <DropdownMenuItem
+                            className="text-red-500"
+                            onClick={() => {
+                                handleDeleteItem(order.id)
+                                toast("Item deleted successfully")
+                            }
+                            }
+                        >Delete Item</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             )
