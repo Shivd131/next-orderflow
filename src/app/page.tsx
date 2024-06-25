@@ -1,7 +1,6 @@
 'use client'
 import { useSelector } from 'react-redux';
 import { RootState } from '@/lib/store';
-import SideNavbar from './components/SideNavbar';
 
 export default function Home() {
   const customers = useSelector((state: RootState) => state.orders.orders.length);
