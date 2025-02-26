@@ -46,7 +46,48 @@ $ npm install
 $ npm run dev
 ```
 
+```
+Directory structure:
+└── src/
+    ├── app/
+    │   ├── StoreProvider.tsx
+    │   ├── globals.css
+    │   ├── layout.tsx
+    │   ├── page.tsx
+    │   ├── inventory-view/
+    │   │   ├── AddItemDialog.tsx
+    │   │   ├── EditItemDialog.tsx
+    │   │   ├── columns.tsx
+    │   │   ├── page.tsx
+    │   │   └── validation/
+    │   │       ├── validate.ts
+    │   │       └── validationSchema.ts
+    │   └── orders-view/
+    │       ├── ViewOrderDialog.tsx
+    │       ├── columns.tsx
+    │       └── page.tsx
+    ├── components/
+    │   ├── SideNavbar.tsx
+    │   └── ui/
+    │       ├── button.tsx
+    │       ├── checkbox.tsx
+    │       ├── data-table.tsx
+    │       ├── dialog.tsx
+    │       ├── dropdown-menu.tsx
+    │       ├── input.tsx
+    │       ├── label.tsx
+    │       ├── sonner.tsx
+    │       └── table.tsx
+    └── lib/
+        ├── store.ts
+        ├── utils.ts
+        └── features/
+            ├── inventory/
+            │   └── inventorySlice.ts
+            └── orders/
+                └── ordersSlice.ts
 
+```
 <p align="center">
 	Made with 💖 by Shiv Deshpande 
 </p>
